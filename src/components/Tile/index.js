@@ -1,9 +1,15 @@
 import React from "react";
-import { string, number } from "prop-types";
+import { string, number, func } from "prop-types";
 import "./style.css";
 
-export default function Tile({ color, id }) {
-  return <div className="tile" style={{ backgroundColor: color }}></div>;
+export default function Tile({ color, id, onDoubleClick }) {
+  return (
+    <div
+      className="tile"
+      onDoubleClick={onDoubleClick}
+      style={{ backgroundColor: color }}
+    ></div>
+  );
 }
 
 Tile.defaultProps = {
@@ -13,4 +19,5 @@ Tile.defaultProps = {
 Tile.propType = {
   color: string,
   id: number.isRequired,
+  onDoubleClick: func.isRequired,
 };
